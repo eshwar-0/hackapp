@@ -1,0 +1,2 @@
+pip install langchain_core
+pip install langchain_community
