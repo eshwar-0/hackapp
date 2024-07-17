@@ -1,18 +1,22 @@
 import os
 import streamlit as st
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from langchain_core.messages import AIMessage
 from langchain_community.llms import HuggingFaceEndpoint
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
-load_dotenv()
-api_token = os.getenv("HUGGINGFACEHUB_API_TOKEN")
+# load_dotenv()
+headers = { 
+    "authorization" : st.secrets["HUGGINGFACEHUB_API_TOKEN"]
+}
+       
+api_token = "HUGGINGFACEHUB_API_TOKEN"
 repo_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 task = "text-generation"
 
-st.set_page_config(page_title="Arth Mitra.AI", page_icon="💰")
-st.title("Arth Mitra.AI 💸")
+st.set_page_config(page_title="Personalized Financial Advise", page_icon="💰")
+st.title("Personalized Financial Advise 💸")
 
 # Define the template for the financial advisor
 financial_template = """
